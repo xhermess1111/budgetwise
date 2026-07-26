@@ -1,6 +1,6 @@
 <?php
 $pageTitle = 'BudgetWise Calculator (PHP Demo)';
-$currency = $_POST['currency'] ?? 'USD';
+$currency = $_POST['currency'] ?? 'PHP';
 $currencySymbols = [
   'USD' => '$',
   'EUR' => '€',
@@ -8,7 +8,8 @@ $currencySymbols = [
   'AUD' => 'A$',
   'CAD' => 'C$',
   'JPY' => '¥',
-  'SGD' => 'S$'
+  'SGD' => 'S$',
+  'PHP' => '₱'
 ];
 
 $result = null;
@@ -77,6 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <option value="CAD" <?= $currency === 'CAD' ? 'selected' : '' ?>>CAD - C$</option>
                 <option value="JPY" <?= $currency === 'JPY' ? 'selected' : '' ?>>JPY - ¥</option>
                 <option value="SGD" <?= $currency === 'SGD' ? 'selected' : '' ?>>SGD - S$</option>
+                <option value="PHP" <?= $currency === 'PHP' ? 'selected' : '' ?>>PHP - ₱</option>
               </select>
             </div>
             <div class="field-group">

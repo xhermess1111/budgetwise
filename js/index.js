@@ -5,9 +5,9 @@ const CURRENCY_KEY = 'budgetwise-currency';
 
 const getStoredCurrency = () => {
   try {
-    return localStorage.getItem(CURRENCY_KEY) || 'USD';
+    return localStorage.getItem(CURRENCY_KEY) || 'PHP';
   } catch (error) {
-    return 'USD';
+    return 'PHP';
   }
 };
 

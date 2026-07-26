@@ -8,7 +8,8 @@ $currencySymbols = [
   'AUD' => 'A$',
   'CAD' => 'C$',
   'JPY' => '¥',
-  'SGD' => 'S$'
+  'SGD' => 'S$',
+  'PHP' => '₱'
 ];
 
 if (!isset($_SESSION['goals'])) {
@@ -16,7 +17,7 @@ if (!isset($_SESSION['goals'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $currency = $_POST['currency'] ?? 'USD';
+  $currency = $_POST['currency'] ?? 'PHP';
   $title = trim($_POST['goalTitle'] ?? '');
   $target = floatval($_POST['goalTarget'] ?? 0);
   $current = floatval($_POST['goalCurrent'] ?? 0);
@@ -77,6 +78,7 @@ $goals = $_SESSION['goals'];
                 <option value="CAD">CAD - C$</option>
                 <option value="JPY">JPY - ¥</option>
                 <option value="SGD">SGD - S$</option>
+                <option value="PHP">PHP - ₱</option>
               </select>
             </div>
             <div class="field-group">
