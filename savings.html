@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BudgetWise | Savings Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">BudgetWise</a>
+      <button class="nav-toggle" aria-controls="main-navigation" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="main-navigation" class="nav-menu" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="budgettips.html" class="nav-link">Budget Tips</a></li>
+          <li><a href="savings.html" class="nav-link active">Savings</a></li>
+          <li><a href="goals.html" class="nav-link">Goals</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <span class="eyebrow">Savings calculator</span>
+          <h1>Find your monthly balance and see your savings opportunity.</h1>
+          <p>Enter your income and expenses to instantly calculate how much you can save each month.</p>
+        </div>
+        <div class="hero-image reveal">
+          <figure>
+            <img src="images/hero1.jpg" alt="A financial summary dashboard with budget planning visuals" loading="lazy" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section calculator-section">
+      <div class="container section-header reveal">
+        <span class="section-label">Calculator</span>
+        <h2>Quickly understand your spending and savings rate.</h2>
+      </div>
+      <div class="container calculator-grid reveal">
+        <form id="savings-form" class="calculator-form" novalidate>
+          <div class="field-group">
+            <label for="currency">Currency</label>
+            <select id="currency" name="currency" class="currency-select">
+              <option value="USD">USD - $</option>
+              <option value="EUR">EUR - €</option>
+              <option value="GBP">GBP - £</option>
+              <option value="AUD">AUD - A$</option>
+              <option value="CAD">CAD - C$</option>
+              <option value="JPY">JPY - ¥</option>
+              <option value="SGD">SGD - S$</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="income">Monthly Income</label>
+            <input type="number" id="income" name="income" min="0" step="0.01" placeholder="Enter your income" required />
+          </div>
+          <div class="field-group">
+            <label for="housing">Housing</label>
+            <input type="number" id="housing" name="housing" min="0" step="0.01" placeholder="Housing cost" required />
+          </div>
+          <div class="field-group">
+            <label for="food">Food</label>
+            <input type="number" id="food" name="food" min="0" step="0.01" placeholder="Food and groceries" required />
+          </div>
+          <div class="field-group">
+            <label for="transportation">Transportation</label>
+            <input type="number" id="transportation" name="transportation" min="0" step="0.01" placeholder="Transport expenses" required />
+          </div>
+          <div class="field-group">
+            <label for="utilities">Utilities</label>
+            <input type="number" id="utilities" name="utilities" min="0" step="0.01" placeholder="Utilities and bills" required />
+          </div>
+          <div class="field-group">
+            <label for="entertainment">Entertainment</label>
+            <input type="number" id="entertainment" name="entertainment" min="0" step="0.01" placeholder="Leisure spending" required />
+          </div>
+          <div class="field-group">
+            <label for="other">Other Expenses</label>
+            <input type="number" id="other" name="other" min="0" step="0.01" placeholder="Additional expenses" required />
+          </div>
+          <button type="submit" class="btn btn-primary">Calculate savings</button>
+          <p class="calculator-message" id="calculator-message" aria-live="polite"></p>
+        </form>
+        <div class="calculator-output">
+          <div class="output-card reveal">
+            <h3>Total Expenses</h3>
+            <p class="output-value" id="total-expenses">$0.00</p>
+          </div>
+          <div class="output-card reveal">
+            <h3>Remaining Balance</h3>
+            <p class="output-value" id="remaining-balance">$0.00</p>
+          </div>
+          <div class="output-card reveal">
+            <h3>Savings Rate</h3>
+            <p class="output-value" id="savings-rate">0%</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section categories-section">
+      <div class="container section-header reveal">
+        <span class="section-label">Expense categories</span>
+        <h2>Track spending categories with live savings data.</h2>
+      </div>
+      <div class="container categories-grid reveal">
+        <article class="category-card" data-category="Housing">
+          <div class="category-label"><span>Housing</span><strong class="category-value">0%</strong></div>
+          <div class="progress-bar"><span data-category="housing" style="--progress:0%"></span></div>
+        </article>
+        <article class="category-card" data-category="Food">
+          <div class="category-label"><span>Food</span><strong class="category-value">0%</strong></div>
+          <div class="progress-bar"><span data-category="food" style="--progress:0%"></span></div>
+        </article>
+        <article class="category-card" data-category="Transportation">
+          <div class="category-label"><span>Transportation</span><strong class="category-value">0%</strong></div>
+          <div class="progress-bar"><span data-category="transportation" style="--progress:0%"></span></div>
+        </article>
+        <article class="category-card" data-category="Entertainment">
+          <div class="category-label"><span>Entertainment</span><strong class="category-value">0%</strong></div>
+          <div class="progress-bar"><span data-category="entertainment" style="--progress:0%"></span></div>
+        </article>
+        <article class="category-card" data-category="Savings">
+          <div class="category-label"><span>Savings</span><strong class="category-value">0%</strong></div>
+          <div class="progress-bar"><span data-category="savings" style="--progress:0%"></span></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="index.html" class="footer-logo">BudgetWise</a>
+        <p>Modern tools for confident financial planning.</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="budgettips.html">Budget Tips</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 BudgetWise. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/index.js"></script>
+</body>
+</html>
